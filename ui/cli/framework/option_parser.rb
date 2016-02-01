@@ -50,6 +50,10 @@ class OptionParser < UI::CLI::OptionParser
         on( '--output-only-positives', 'Only output positive results.' ) do
             only_positives
         end
+
+        on( '--output-monochrome', 'Do NOT use TTY color codes in output.' ) do
+            use_monochrome
+        end
     end
 
     def scope

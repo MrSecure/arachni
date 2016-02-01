@@ -36,6 +36,8 @@ module Output
         @@verbose = false
         @@mute    = false
 
+        @@use_monochrome = false
+
         @@only_positives  = false
         @@reroute_to_file = false
 
@@ -343,6 +345,20 @@ module Output
         @@only_positives
     end
 
+    # Disable color codes in TTY output
+    def use_monochrome
+        @@use_monochrome = true
+    end
+
+    def disable_use_monochrome
+        @@use_monochrome = false
+    end
+
+    # @return    [Bool]
+    def use_monochrome?
+        @@use_monochrome
+    end
+
     # Mutes all output messages, unless they explicitly override the mute status.
     def mute
         @@mute = true
@@ -382,7 +398,7 @@ module Output
 
         # We may get IO errors...freaky stuff...
         begin
-            if out.tty?
+            if out.tty? && !use_monochrome
                 out.print "\033[1;#{color.to_s}m #{sign}\033[1;00m #{str}\n"
             else
                 out.print "#{sign} #{str}\n"
