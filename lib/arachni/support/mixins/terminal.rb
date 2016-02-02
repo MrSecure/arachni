@@ -37,7 +37,7 @@ module Terminal
 
     # Clear the bottom of the screen
     def clear_screen
-        # print "\e[2J"
+        print "\e[2J"
     end
 
     def empty_screen

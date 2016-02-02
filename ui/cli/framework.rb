@@ -41,7 +41,7 @@ class Framework
 
         trap( 'INT' ) do
             hide_command_screen
-            clear_screen
+            # clear_screen
             shutdown
         end
 
