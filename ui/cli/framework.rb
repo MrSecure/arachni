@@ -41,7 +41,7 @@ class Framework
 
         trap( 'INT' ) do
             hide_command_screen
-            # clear_screen
+            clear_screen
             shutdown
         end
 
@@ -62,7 +62,7 @@ class Framework
                 @framework.run do
                     hide_command_screen
                     restore_output_options
-                    clear_screen
+                    # clear_screen
                 end
 
                 @timeout_supervisor.kill if @timeout_supervisor
