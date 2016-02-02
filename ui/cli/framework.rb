@@ -41,9 +41,7 @@ class Framework
 
         trap( 'INT' ) do
             hide_command_screen
-            if ! @monochrome?
-              clear_screen
-            end
+            clear_screen
             shutdown
         end
 
